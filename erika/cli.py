@@ -29,6 +29,7 @@ def create_argument_parser():
     add_render_demo_parser(command_parser)
     add_render_ascii_art_parser(command_parser)
     add_run_tic_tac_toe_parser(command_parser)
+    add_run_menu_parser(command_parser)
     argcomplete.autocomplete(parser, always_complete_options=True)
     return parser
 
@@ -50,6 +51,14 @@ To control the game:
                                                 formatter_class=RawTextHelpFormatter,
                                                 help='Run the tic tac toe game')
     argument_parser.set_defaults(func=run_tic_tac_toe)
+    add_basic_erika_params(argument_parser)
+
+
+def add_run_menu_parser(command_parser):
+    argument_parser = command_parser.add_parser('menu',
+                                                formatter_class=RawTextHelpFormatter,
+                                                help='Run menu')
+    argument_parser.set_defaults(func=run_menu)
     add_basic_erika_params(argument_parser)
 
 
@@ -129,6 +138,12 @@ def run_tic_tac_toe(args):
     erika = get_erika_for_given_args(args, is_character_based=True)
     with TicTacToe(erika) as game:
         game.start_game()
+
+
+def run_menu(args):
+    erika = get_erika_for_given_args(args, is_character_based=True)
+    with Menu(erika) as menu:
+        menu.run()
 
 
 def get_erika_for_given_args(args, is_character_based=False):
