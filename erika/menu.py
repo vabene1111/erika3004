@@ -39,6 +39,7 @@ class Menu:
                 self.run_program(programs.get(inp, None))
 
     def run_program(self, program):
+        self.erika.set_keyboard_echo(True)
         self.erika.move_up()
         self.erika.move_up()
         self.erika.move_up()
