@@ -144,7 +144,7 @@ def run_tic_tac_toe(args):
 def run_menu(args):
     erika = get_erika_for_given_args(args, is_character_based=True)
     with Menu(erika) as menu:
-        menu.run()
+        menu.start_menu()
 
 
 def get_erika_for_given_args(args, is_character_based=False):
