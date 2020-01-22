@@ -28,4 +28,3 @@ class Menu:
 
     def run_program(self, program):
         self.erika.print_ascii("Selected program " + program)
-        self.erika.set_keyboard_echo(True)
