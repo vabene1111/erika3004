@@ -1,3 +1,6 @@
+import os
+from time import sleep
+
 from erika.TicTacToe import TicTacToe
 
 
@@ -48,4 +51,5 @@ class Menu:
             with TicTacToe(self.erika) as game:
                 game.start_game()
 
+        sleep(1)
         self.start_menu()
