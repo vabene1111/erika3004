@@ -26,6 +26,12 @@ class Menu:
         for key, program in programs.items():
             self.erika.print_ascii(key + " - " + program + "\n")
 
+        self.erika.move_down()
+        self.erika.move_down()
+        self.erika.move_down()
+        self.erika.move_down()
+        self.erika.move_down()
+
         while self.menu_running:
             inp = self.erika.read()
 
@@ -33,8 +39,11 @@ class Menu:
                 self.run_program(programs.get(inp, None))
 
     def run_program(self, program):
-        self.erika.move_right()
-        self.erika.move_down()
+        self.erika.move_up()
+        self.erika.move_up()
+        self.erika.move_up()
+        self.erika.move_up()
+        self.erika.move_up()
 
         if program == "quit":
             self.menu_running = False
