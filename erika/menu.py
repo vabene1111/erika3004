@@ -26,11 +26,8 @@ class Menu:
         for key, program in programs.items():
             self.erika.print_ascii(key + " - " + program + "\n")
 
-        self.erika.move_down()
-        self.erika.move_down()
-        self.erika.move_down()
-        self.erika.move_down()
-        self.erika.move_down()
+        for x in range(0, 5):
+            self.erika.move_down()
 
         while self.menu_running:
             inp = self.erika.read()
@@ -40,11 +37,9 @@ class Menu:
 
     def run_program(self, program):
         self.erika.set_keyboard_echo(True)
-        self.erika.move_up()
-        self.erika.move_up()
-        self.erika.move_up()
-        self.erika.move_up()
-        self.erika.move_up()
+
+        for x in range(0, 5):
+            self.erika.move_up()
 
         if program == "quit":
             self.menu_running = False
@@ -52,3 +47,5 @@ class Menu:
             self.menu_running = False
             with TicTacToe(self.erika) as game:
                 game.start_game()
+
+        self.start_menu()
