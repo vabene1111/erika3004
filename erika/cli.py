@@ -12,6 +12,7 @@ from queue import Empty
 import argcomplete
 
 from erika.TicTacToe import TicTacToe
+from erika.menu import Menu
 from erika.erika import Erika
 from erika.erika_image_renderer import *
 from erika.erika_mock import *
