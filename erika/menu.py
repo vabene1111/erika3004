@@ -23,7 +23,7 @@ class Menu:
         self.erika.set_keyboard_echo(False)
         self.erika.print_ascii("\nErika Menu v0.0.0.0.1\n")
 
-        for key, program in programs:
+        for key, program in programs.items():
             self.erika.print_ascii(key + " - " + program + "\n")
 
         while self.menu_running:
