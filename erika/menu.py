@@ -9,6 +9,7 @@ class Menu:
     def __init__(self, erika):
         self.erika = erika
         self.menu_running = True
+        self.program_running = False
 
     def __enter__(self):
         return self
@@ -35,11 +36,12 @@ class Menu:
         while self.menu_running:
             inp = self.erika.read()
 
-            if programs.get(inp, None):
+            if programs.get(inp, None) and not self.program_running:
                 self.run_program(programs.get(inp, None))
 
     def run_program(self, program):
         self.erika.set_keyboard_echo(True)
+        self.program_running = True
 
         for x in range(0, 5):
             self.erika.move_up()
@@ -47,9 +49,7 @@ class Menu:
         if program == "quit":
             self.menu_running = False
         if program == "tic_tac_toe":
-            self.menu_running = False
             with TicTacToe(self.erika) as game:
                 game.start_game()
 
-        sleep(1)
-        self.start_menu()
+        self.program_running = False
