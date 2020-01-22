@@ -17,9 +17,17 @@ class Menu:
 
         while True:
             inp = self.erika.read()
-            print(inp)
-            if inp == "":
-                self.erika.print_ascii("Entry selected was " + inp)
+            programs = {
+                "1": "tic_tac_toe",
+                "2": "test",
+            }
+
+            if programs.get(inp, None):
+                self.run_program(programs.get(inp, None))
                 break
 
         self.erika.set_keyboard_echo(True)
+
+    def run_program(self, program):
+        self.erika.print_ascii("Selected program " + program)
+        pass
