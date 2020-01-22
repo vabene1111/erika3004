@@ -18,7 +18,7 @@ class Menu:
         while True:
             inp = self.erika.read()
             programs = {
-                "1": "tic_tac_toe",
+                "1": "tttblaxy",
                 "2": "test",
             }
 
@@ -26,8 +26,6 @@ class Menu:
                 self.run_program(programs.get(inp, None))
                 break
 
-        self.erika.set_keyboard_echo(True)
-
     def run_program(self, program):
         self.erika.print_ascii("Selected program " + program)
-        pass
+        self.erika.set_keyboard_echo(True)
