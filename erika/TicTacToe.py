@@ -69,6 +69,7 @@ class TicTacToe:
         self.turn = np.random.randint(1, 3)
         self.game_over = False
         self.game_loop()
+        self.erika.set_keyboard_echo(True)
 
     def _print_initial_field(self):
         ascii_field = create_field(self.field_size, cell_height=self.cell_height
