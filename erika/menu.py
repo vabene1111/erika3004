@@ -1,4 +1,3 @@
-from erika import cli
 from erika.TicTacToe import TicTacToe
 
 
