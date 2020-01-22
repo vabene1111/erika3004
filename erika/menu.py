@@ -17,7 +17,8 @@ class Menu:
 
         while True:
             inp = self.erika.read()
-            if not inp == "":
+            print(inp)
+            if inp == "":
                 self.erika.print_ascii("Entry selected was " + inp)
                 break
 
