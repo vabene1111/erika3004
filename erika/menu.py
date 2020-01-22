@@ -24,7 +24,6 @@ class Menu:
 
             if programs.get(inp, None):
                 self.run_program(programs.get(inp, None))
-                break
 
     def run_program(self, program):
         self.erika.print_ascii("Selected program " + program)
