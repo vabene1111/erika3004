@@ -19,6 +19,6 @@ class Menu:
             inp = self.erika.read()
             if inp:
                 self.erika.print_ascii("Entry selected was " + inp)
-            break
+                break
 
         self.erika.set_keyboard_echo(True)
