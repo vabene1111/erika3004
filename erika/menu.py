@@ -1,3 +1,6 @@
+from erika import cli
+
+
 class Menu:
 
     def __init__(self, erika):
@@ -20,12 +23,16 @@ class Menu:
             inp = self.erika.read()
             programs = {
                 "1": "tic_tac_toe",
-                2: "test",
+                "2": "test",
+                "q": "quit"
             }
 
             if programs.get(inp, None):
                 self.run_program(programs.get(inp, None))
 
     def run_program(self, program):
-        self.erika.print_ascii("Selected program " + program)
-        self.menu_running = False
+        if program == "quit":
+            self.menu_running = False
+        if program == "tic_tac_toe":
+            self.menu_running = False
+            cli.run_tic_tac_toe(self.erika)
