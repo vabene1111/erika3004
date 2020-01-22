@@ -14,23 +14,28 @@ class Menu:
         self.erika.__exit__()
 
     def start_menu(self):
+        programs = {
+            "1": "tic_tac_toe",
+            "2": "test",
+            "q": "quit"
+        }
+
         self.erika.set_keyboard_echo(False)
-        self.erika.move_right()
-        self.erika.print_ascii("Menu")
-        self.erika.move_down()
+        self.erika.print_ascii("\nErika Menu v0.0.0.0.1\n")
+
+        for key, program in programs:
+            self.erika.print_ascii(key + " - " + program + "\n")
 
         while self.menu_running:
             inp = self.erika.read()
-            programs = {
-                "1": "tic_tac_toe",
-                "2": "test",
-                "q": "quit"
-            }
 
             if programs.get(inp, None):
                 self.run_program(programs.get(inp, None))
 
     def run_program(self, program):
+        self.erika.move_right()
+        self.erika.move_down()
+
         if program == "quit":
             self.menu_running = False
         if program == "tic_tac_toe":
