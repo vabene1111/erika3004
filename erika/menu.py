@@ -1,4 +1,5 @@
 from erika import cli
+from erika.TicTacToe import TicTacToe
 
 
 class Menu:
@@ -35,4 +36,5 @@ class Menu:
             self.menu_running = False
         if program == "tic_tac_toe":
             self.menu_running = False
-            cli.run_tic_tac_toe(self.erika)
+            with TicTacToe(self.erika) as game:
+                game.start_game()
